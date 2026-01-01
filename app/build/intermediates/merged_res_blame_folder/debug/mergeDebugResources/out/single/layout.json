@@ -1,0 +1,54 @@
+[
+    {
+        "merged": "com.example.pantrypal.app-mergeDebugResources-56:/layout/item_pantry.xml",
+        "source": "com.example.pantrypal.app-main-59:/layout/item_pantry.xml"
+    },
+    {
+        "merged": "com.example.pantrypal.app-mergeDebugResources-56:/layout/activity_add_edit_item.xml",
+        "source": "com.example.pantrypal.app-main-59:/layout/activity_add_edit_item.xml"
+    },
+    {
+        "merged": "com.example.pantrypal.app-mergeDebugResources-56:/layout/fragment_settings.xml",
+        "source": "com.example.pantrypal.app-main-59:/layout/fragment_settings.xml"
+    },
+    {
+        "merged": "com.example.pantrypal.app-mergeDebugResources-56:/layout/activity_splash.xml",
+        "source": "com.example.pantrypal.app-main-59:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "com.example.pantrypal.app-mergeDebugResources-56:/layout/dialog_add_shopping_item.xml",
+        "source": "com.example.pantrypal.app-main-59:/layout/dialog_add_shopping_item.xml"
+    },
+    {
+        "merged": "com.example.pantrypal.app-mergeDebugResources-56:/layout/fragment_pantry.xml",
+        "source": "com.example.pantrypal.app-main-59:/layout/fragment_pantry.xml"
+    },
+    {
+        "merged": "com.example.pantrypal.app-mergeDebugResources-56:/layout/activity_item_detail.xml",
+        "source": "com.example.pantrypal.app-main-59:/layout/activity_item_detail.xml"
+    },
+    {
+        "merged": "com.example.pantrypal.app-mergeDebugResources-56:/layout/fragment_shopping.xml",
+        "source": "com.example.pantrypal.app-main-59:/layout/fragment_shopping.xml"
+    },
+    {
+        "merged": "com.example.pantrypal.app-mergeDebugResources-56:/layout/activity_login.xml",
+        "source": "com.example.pantrypal.app-main-59:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.example.pantrypal.app-mergeDebugResources-56:/layout/activity_register.xml",
+        "source": "com.example.pantrypal.app-main-59:/layout/activity_register.xml"
+    },
+    {
+        "merged": "com.example.pantrypal.app-mergeDebugResources-56:/layout/activity_main.xml",
+        "source": "com.example.pantrypal.app-main-59:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.pantrypal.app-mergeDebugResources-56:/layout/item_shopping.xml",
+        "source": "com.example.pantrypal.app-main-59:/layout/item_shopping.xml"
+    },
+    {
+        "merged": "com.example.pantrypal.app-mergeDebugResources-56:/layout/fragment_home.xml",
+        "source": "com.example.pantrypal.app-main-59:/layout/fragment_home.xml"
+    }
+]
