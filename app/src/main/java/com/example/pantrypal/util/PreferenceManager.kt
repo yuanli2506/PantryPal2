@@ -5,18 +5,20 @@ import android.content.SharedPreferences
 
 class PreferenceManager(context: Context) {
 
-    private val sharedPreferences: SharedPreferences = 
+    private val sharedPreferences: SharedPreferences =
         context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
 
     companion object {
         private const val PREF_NAME = "pantry_pal_prefs"
-        
+
         // Session keys
         private const val KEY_IS_LOGGED_IN = "is_logged_in"
         private const val KEY_USER_ID = "user_id"
         private const val KEY_USER_NAME = "user_name"
         private const val KEY_USER_EMAIL = "user_email"
-        
+        private const val KEY_USER_GENDER = "user_gender"
+        private const val KEY_USER_BIRTHDATE = "user_birthdate"
+
         // Settings keys
         private const val KEY_NOTIFICATIONS_ENABLED = "notifications_enabled"
         private const val KEY_DAILY_SUMMARY_ENABLED = "daily_summary_enabled"
@@ -24,8 +26,10 @@ class PreferenceManager(context: Context) {
         private const val KEY_NOTIFICATION_TIME = "notification_time"
     }
 
+
+
     // ==================== Session Management ====================
-    
+
     fun isLoggedIn(): Boolean {
         return sharedPreferences.getBoolean(KEY_IS_LOGGED_IN, false)
     }
@@ -42,7 +46,7 @@ class PreferenceManager(context: Context) {
         return sharedPreferences.getInt(KEY_USER_ID, -1)
     }
 
-    fun saveUserName(name: String) {
+    fun setUserName(name: String) {
         sharedPreferences.edit().putString(KEY_USER_NAME, name).apply()
     }
 
@@ -50,12 +54,28 @@ class PreferenceManager(context: Context) {
         return sharedPreferences.getString(KEY_USER_NAME, null)
     }
 
-    fun saveUserEmail(email: String) {
+    fun setUserEmail(email: String) {
         sharedPreferences.edit().putString(KEY_USER_EMAIL, email).apply()
     }
 
     fun getUserEmail(): String? {
         return sharedPreferences.getString(KEY_USER_EMAIL, null)
+    }
+
+    fun setUserGender(gender: String) {
+        sharedPreferences.edit().putString(KEY_USER_GENDER, gender).apply()
+    }
+
+    fun getUserGender(): String? {
+        return sharedPreferences.getString(KEY_USER_GENDER, null)
+    }
+
+    fun setUserBirthdate(birthdate: String) {
+        sharedPreferences.edit().putString(KEY_USER_BIRTHDATE, birthdate).apply()
+    }
+
+    fun getUserBirthdate(): String {
+        return sharedPreferences.getString(KEY_USER_BIRTHDATE, "") ?: ""
     }
 
     fun clearSession() {
@@ -64,11 +84,13 @@ class PreferenceManager(context: Context) {
             .remove(KEY_USER_ID)
             .remove(KEY_USER_NAME)
             .remove(KEY_USER_EMAIL)
+            .remove(KEY_USER_GENDER)
+            .remove(KEY_USER_BIRTHDATE)
             .apply()
     }
 
     // ==================== Notification Settings ====================
-    
+
     fun isNotificationsEnabled(): Boolean {
         return sharedPreferences.getBoolean(KEY_NOTIFICATIONS_ENABLED, true)
     }

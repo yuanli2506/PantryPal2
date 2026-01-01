@@ -5,12 +5,18 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
 import com.example.pantrypal.data.local.PantryDatabase
+import com.example.pantrypal.data.repository.UserRepository
 
 class PantryPalApplication : Application() {
 
     // Lazy initialization of database
     val database: PantryDatabase by lazy {
         PantryDatabase.getDatabase(this)
+    }
+    
+    // Lazy initialization of repository
+    val userRepository: UserRepository by lazy {
+        UserRepository(database.userDao())
     }
 
     override fun onCreate() {

@@ -14,7 +14,16 @@
     <string name="delete_item">Delete Item</string>
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
-    
+    <string name="edit_profile">Edit Profile</string>
+
+    <!-- Fields -->
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="birthdate">Birthdate</string>
+
     <!-- Status -->
     <string name="fresh">Fresh</string>
     <string name="expiring_soon">Expiring Soon</string>

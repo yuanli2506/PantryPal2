@@ -44,6 +44,10 @@
         "source": "com.example.pantrypal.app-main-59:/layout/activity_main.xml"
     },
     {
+        "merged": "com.example.pantrypal.app-mergeDebugResources-56:/layout/fragment_edit_profile.xml",
+        "source": "com.example.pantrypal.app-main-59:/layout/fragment_edit_profile.xml"
+    },
+    {
         "merged": "com.example.pantrypal.app-mergeDebugResources-56:/layout/item_shopping.xml",
         "source": "com.example.pantrypal.app-main-59:/layout/item_shopping.xml"
     },

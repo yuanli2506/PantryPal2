@@ -4,56 +4,66 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import com.example.pantrypal.PantryPalApplication
 import com.example.pantrypal.databinding.ActivityLoginBinding
-import com.example.pantrypal.data.repository.UserRepository
 import com.example.pantrypal.ui.MainActivity
 import com.example.pantrypal.util.PreferenceManager
-import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var userRepository: UserRepository
-    private lateinit var preferenceManager: PreferenceManager
+
+    private val loginViewModel: LoginViewModel by viewModels {
+        val application = application as PantryPalApplication
+        LoginViewModelFactory(application.userRepository, PreferenceManager(this))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Initialize repository
-        val database = (application as PantryPalApplication).database
-        userRepository = UserRepository(database.userDao())
-        preferenceManager = PreferenceManager(this)
-
         setupClickListeners()
+        observeViewModel()
+    }
+
+    private fun observeViewModel() {
+        loginViewModel.loginResult.observe(this) { result ->
+            when (result) {
+                is LoginResult.Loading -> showLoading(true)
+                is LoginResult.Success -> {
+                    showLoading(false)
+                    if (result.user.id != -1) { // Don't show toast for guest
+                        Toast.makeText(this, "Welcome, ${result.user.name}!", Toast.LENGTH_SHORT).show()
+                    }
+                    navigateToMain()
+                }
+                is LoginResult.Error -> {
+                    showLoading(false)
+                    Toast.makeText(this, result.message, Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 
     private fun setupClickListeners() {
-        // Login button
         binding.btnLogin.setOnClickListener {
             val email = binding.etEmail.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
 
             if (validateInput(email, password)) {
-                performLogin(email, password)
+                loginViewModel.login(email, password)
             }
         }
 
-        // Register link
         binding.tvRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
-        // Skip login (for demo purposes)
         binding.tvSkip.setOnClickListener {
-            preferenceManager.setLoggedIn(true)
-            preferenceManager.saveUserId(-1) // Guest user
-            preferenceManager.saveUserName("Guest")
-            navigateToMain()
+            loginViewModel.skipLogin()
         }
     }
 
@@ -81,34 +91,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
         return isValid
-    }
-
-    private fun performLogin(email: String, password: String) {
-        showLoading(true)
-
-        lifecycleScope.launch {
-            try {
-                val user = userRepository.login(email, password)
-                
-                if (user != null) {
-                    // Save user session
-                    preferenceManager.setLoggedIn(true)
-                    preferenceManager.saveUserId(user.id)
-                    preferenceManager.saveUserName(user.name)
-                    preferenceManager.saveUserEmail(user.email)
-                    
-                    showLoading(false)
-                    Toast.makeText(this@LoginActivity, "Welcome, ${user.name}!", Toast.LENGTH_SHORT).show()
-                    navigateToMain()
-                } else {
-                    showLoading(false)
-                    Toast.makeText(this@LoginActivity, "Invalid email or password", Toast.LENGTH_SHORT).show()
-                }
-            } catch (e: Exception) {
-                showLoading(false)
-                Toast.makeText(this@LoginActivity, "Login failed: ${e.message}", Toast.LENGTH_SHORT).show()
-            }
-        }
     }
 
     private fun showLoading(isLoading: Boolean) {

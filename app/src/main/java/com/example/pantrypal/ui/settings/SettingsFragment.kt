@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.pantrypal.R
 import com.example.pantrypal.databinding.FragmentSettingsBinding
 import com.example.pantrypal.ui.auth.LoginActivity
 import com.example.pantrypal.util.PreferenceManager
@@ -31,16 +33,21 @@ class SettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         preferenceManager = PreferenceManager(requireContext())
-        
+
         setupProfile()
         setupNotificationSettings()
         setupClickListeners()
     }
 
+    override fun onResume() {
+        super.onResume()
+        setupProfile()
+    }
+
     private fun setupProfile() {
         binding.tvUserName.text = preferenceManager.getUserName() ?: "Guest"
         binding.tvUserEmail.text = preferenceManager.getUserEmail() ?: "Not logged in"
-        
+
         // Show first letter as avatar
         val name = preferenceManager.getUserName() ?: "G"
         binding.tvAvatarLetter.text = name.first().uppercase()
@@ -50,7 +57,7 @@ class SettingsFragment : Fragment() {
         // Load saved preferences
         binding.switchExpiryReminders.isChecked = preferenceManager.isNotificationsEnabled()
         binding.switchDailySummary.isChecked = preferenceManager.isDailySummaryEnabled()
-        
+
         // Update reminder days text
         val reminderDays = preferenceManager.getReminderDays()
         binding.tvReminderDays.text = "$reminderDays day(s) before"
@@ -74,7 +81,7 @@ class SettingsFragment : Fragment() {
 
         // Edit profile
         binding.layoutEditProfile.setOnClickListener {
-            // TODO: Implement edit profile
+            findNavController().navigate(R.id.action_settingsFragment_to_editProfileFragment)
         }
 
         // About
@@ -132,7 +139,7 @@ class SettingsFragment : Fragment() {
 
     private fun performLogout() {
         preferenceManager.clearSession()
-        
+
         val intent = Intent(requireContext(), LoginActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
