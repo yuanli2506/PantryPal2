@@ -4,6 +4,7 @@ import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.example.pantrypal.PantryPalApplication
@@ -13,19 +14,25 @@ import com.example.pantrypal.ui.MainActivity
 class NotificationReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
+        Log.d("NotificationReceiver", "🔔 onReceive called at ${System.currentTimeMillis()}")
+
         val title = intent.getStringExtra(EXTRA_TITLE) ?: "PantryPal Reminder"
         val message = intent.getStringExtra(EXTRA_MESSAGE) ?: "Check your pantry for expiring items"
         val notificationId = intent.getIntExtra(EXTRA_NOTIFICATION_ID, 0)
+
+        Log.d("NotificationReceiver", "Title: $title, Message: $message, ID: $notificationId")
 
         showNotification(context, notificationId, title, message)
     }
 
     private fun showNotification(context: Context, notificationId: Int, title: String, message: String) {
+        Log.d("NotificationReceiver", "Attempting to show notification...")
+
         // Create intent to open app when notification is tapped
         val intent = Intent(context, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
-        
+
         val pendingIntent = PendingIntent.getActivity(
             context,
             0,
@@ -47,8 +54,9 @@ class NotificationReceiver : BroadcastReceiver() {
         // Show notification
         try {
             NotificationManagerCompat.from(context).notify(notificationId, notification)
+            Log.d("NotificationReceiver", "✅ Notification sent successfully!")
         } catch (e: SecurityException) {
-            // Permission not granted
+            Log.e("NotificationReceiver", "❌ SecurityException: ${e.message}")
             e.printStackTrace()
         }
     }

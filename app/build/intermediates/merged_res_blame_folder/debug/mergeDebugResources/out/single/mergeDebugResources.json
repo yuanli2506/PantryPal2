@@ -1,182 +1,182 @@
 [
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_ic_delete.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\ic_delete.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/layout_activity_main.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/layout/activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_bg_search.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\bg_search.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/layout_activity_register.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/layout/activity_register.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\layout\\activity_main.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/layout_fragment_settings.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/layout/fragment_settings.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\layout_dialog_add_shopping_item.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\layout\\dialog_add_shopping_item.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_ic_settings.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/ic_settings.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_ic_home.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\ic_home.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/layout_dialog_add_shopping_item.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/layout/dialog_add_shopping_item.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_bg_circle.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\bg_circle.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/layout_fragment_pantry.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/layout/fragment_pantry.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_ic_settings.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\ic_settings.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_ic_edit.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\ic_edit.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/layout_activity_add_edit_item.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/layout/activity_add_edit_item.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\layout_activity_splash.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\layout\\activity_splash.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_ic_notification.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/ic_notification.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\menu_menu_item_detail.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\menu\\menu_item_detail.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\layout_activity_login.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\layout\\activity_login.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_ic_home.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/ic_home.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\layout_fragment_settings.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\layout\\fragment_settings.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_bg_circle.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/bg_circle.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_bg_header_gradient.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\bg_header_gradient.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_ic_email.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/ic_email.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_ic_pantry.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\ic_pantry.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/layout_activity_login.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/layout/activity_login.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_ic_back.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\ic_back.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_ic_info.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/ic_info.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_ic_email.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\ic_email.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_ic_lock.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/ic_lock.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\xml\\backup_rules.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_ic_filter.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/ic_filter.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_ic_chevron_right.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\ic_chevron_right.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_ic_delete.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/ic_delete.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\layout_fragment_pantry.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\layout\\fragment_pantry.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_ic_chevron_right.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/ic_chevron_right.xml"
     },
     {
-        "merged": "com.example.pantrypal.app-debug-57:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.example.pantrypal.app-main-59:/drawable/ic_launcher_background.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_ic_add.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/ic_add.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_ic_lock.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\ic_lock.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_bg_consumed_badge.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/bg_consumed_badge.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_ic_notification.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\ic_notification.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_ic_calendar.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/ic_calendar.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_bg_consumed_badge.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\bg_consumed_badge.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_bg_status_badge.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/bg_status_badge.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\xml\\data_extraction_rules.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/layout_item_pantry.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/layout/item_pantry.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_ic_add.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\ic_add.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_ic_shopping.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/ic_shopping.xml"
     },
     {
-        "merged": "com.example.pantrypal.app-debug-57:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.example.pantrypal.app-main-59:/drawable/ic_launcher_foreground.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_ic_person.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\ic_person.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/xml_backup_rules.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/xml/backup_rules.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_ic_calendar.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\ic_calendar.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/layout_fragment_home.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/layout/fragment_home.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_ic_shopping.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\ic_shopping.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/menu_bottom_nav_menu.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/menu/bottom_nav_menu.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\layout_fragment_shopping.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\layout\\fragment_shopping.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_ic_person.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/ic_person.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_ic_logout.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\ic_logout.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_ic_logout.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/ic_logout.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_ic_info.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\ic_info.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/layout_fragment_shopping.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/layout/fragment_shopping.xml"
     },
     {
-        "merged": "com.example.pantrypal.app-debug-57:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.example.pantrypal.app-main-59:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_ic_app_logo.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/ic_app_logo.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\layout_fragment_home.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\layout\\fragment_home.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_ic_close.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/ic_close.xml"
     },
     {
-        "merged": "com.example.pantrypal.app-debug-57:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.example.pantrypal.app-main-59:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/menu_menu_item_detail.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/menu/menu_item_detail.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\layout_activity_item_detail.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\layout\\activity_item_detail.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_ic_filter.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\ic_filter.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/layout_activity_item_detail.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/layout/activity_item_detail.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\menu_bottom_nav_menu.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\menu\\bottom_nav_menu.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_bg_search.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/bg_search.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\layout_item_pantry.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\layout\\item_pantry.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_bg_header_gradient.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/bg_header_gradient.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_ic_close.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\ic_close.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_ic_back.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/ic_back.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_ic_app_logo.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\ic_app_logo.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_ic_edit.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/ic_edit.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\layout_activity_add_edit_item.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\layout\\activity_add_edit_item.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/layout_item_shopping.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/layout/item_shopping.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\layout_item_shopping.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\layout\\item_shopping.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\layout_activity_register.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\layout\\activity_register.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/layout_activity_splash.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/layout/activity_splash.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-debug-57:\\drawable_bg_status_badge.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.13\\com.example.pantrypal.app-main-59:\\drawable\\bg_status_badge.xml"
+        "merged": "com.example.pantrypal.app-debug-60:/drawable_ic_pantry.xml.flat",
+        "source": "com.example.pantrypal.app-main-62:/drawable/ic_pantry.xml"
     }
 ]

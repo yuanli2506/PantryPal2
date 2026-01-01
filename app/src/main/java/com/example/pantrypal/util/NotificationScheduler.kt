@@ -12,7 +12,7 @@ object NotificationScheduler {
 
     fun scheduleDailyCheck(context: Context) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        
+
         val intent = Intent(context, NotificationReceiver::class.java).apply {
             putExtra(NotificationReceiver.EXTRA_TITLE, "PantryPal Daily Check")
             putExtra(NotificationReceiver.EXTRA_MESSAGE, "Check your pantry for items expiring soon!")
@@ -26,26 +26,25 @@ object NotificationScheduler {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
-        // Schedule for 9:00 AM daily
+        // Calculate next 9 AM
         val calendar = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
             set(Calendar.HOUR_OF_DAY, 9)
             set(Calendar.MINUTE, 0)
             set(Calendar.SECOND, 0)
-            
-            // If time has passed today, schedule for tomorrow
+
             if (timeInMillis <= System.currentTimeMillis()) {
                 add(Calendar.DAY_OF_MONTH, 1)
             }
         }
 
-        // Schedule repeating alarm
-        alarmManager.setRepeating(
-            AlarmManager.RTC_WAKEUP,
+        // Use setAlarmClock for highest priority (shows in status bar)
+        val alarmClockInfo = AlarmManager.AlarmClockInfo(
             calendar.timeInMillis,
-            AlarmManager.INTERVAL_DAY,
             pendingIntent
         )
+
+        alarmManager.setAlarmClock(alarmClockInfo, pendingIntent)
     }
 
     fun scheduleExpiryNotification(

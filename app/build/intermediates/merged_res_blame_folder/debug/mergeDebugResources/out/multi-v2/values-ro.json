@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.pantrypal.app-mergeDebugResources-55:/values-ro/values-ro.xml",
+            "outputFile": "com.example.pantrypal.app-mergeDebugResources-58:/values-ro/values-ro.xml",
             "map": [
                 {
                     "source": "C:\\Users\\User\\.gradle\\caches\\8.13\\transforms\\789a4f3f827004ad9c1490b4b9a3f4ba\\transformed\\core-1.12.0\\res\\values-ro\\values-ro.xml",

@@ -5,6 +5,8 @@ import com.example.pantrypal.data.local.ShoppingDao
 import com.example.pantrypal.data.model.ShoppingItem
 import com.example.pantrypal.data.repository.ShoppingRepository
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.Dispatchers
+
 
 class ShoppingViewModel(shoppingDao: ShoppingDao) : ViewModel() {
 
@@ -18,28 +20,25 @@ class ShoppingViewModel(shoppingDao: ShoppingDao) : ViewModel() {
 
     // Add item
     fun addItem(item: ShoppingItem) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.insert(item)
         }
     }
 
-    // Toggle checked status
     fun toggleChecked(itemId: Int) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.toggleChecked(itemId)
         }
     }
 
-    // Delete item
     fun deleteItem(item: ShoppingItem) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.delete(item)
         }
     }
 
-    // Delete all checked items
     fun deleteAllChecked() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.deleteAllChecked()
         }
     }

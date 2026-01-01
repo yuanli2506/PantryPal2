@@ -7,6 +7,8 @@ import com.example.pantrypal.data.model.PantryItem
 import com.example.pantrypal.data.repository.PantryRepository
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.Dispatchers
+
 
 class PantryViewModel(pantryDao: PantryDao) : ViewModel() {
 
@@ -103,15 +105,15 @@ class PantryViewModel(pantryDao: PantryDao) : ViewModel() {
     }
 
     fun deleteItem(itemId: Int) {
-        viewModelScope.launch {
-            _isLoading.value = true
+        viewModelScope.launch(Dispatchers.IO) {
+            _isLoading.postValue(true)
             repository.deleteById(itemId)
-            _isLoading.value = false
+            _isLoading.postValue(false)
         }
     }
 
     fun markAsConsumed(itemId: Int) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.markAsConsumed(itemId)
         }
     }

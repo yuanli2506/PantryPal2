@@ -15,6 +15,8 @@ import com.example.pantrypal.R
 import com.example.pantrypal.databinding.ActivityMainBinding
 import com.example.pantrypal.ui.additem.AddEditItemActivity
 import com.google.android.material.snackbar.Snackbar
+import com.example.pantrypal.util.NotificationScheduler
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,6 +46,9 @@ class MainActivity : AppCompatActivity() {
         setupNavigation()
         setupFab()
         checkNotificationPermission()
+
+        NotificationScheduler.scheduleDailyCheck(this)
+
     }
 
     private fun setupNavigation() {

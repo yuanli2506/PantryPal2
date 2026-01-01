@@ -6,6 +6,8 @@ import com.example.pantrypal.data.model.PantryItem
 import com.example.pantrypal.data.repository.PantryRepository
 import kotlinx.coroutines.launch
 import java.util.Calendar
+import kotlinx.coroutines.Dispatchers
+
 
 class HomeViewModel(pantryDao: PantryDao) : ViewModel() {
 
@@ -31,14 +33,14 @@ class HomeViewModel(pantryDao: PantryDao) : ViewModel() {
 
     // Delete item
     fun deleteItem(item: PantryItem) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.delete(item)
         }
     }
 
-    // Mark as consumed
+    //marked as consumed
     fun markAsConsumed(itemId: Int) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.markAsConsumed(itemId)
         }
     }
