@@ -29,4 +29,10 @@
     <color name="divider">#E0E0E0</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+
+    <!-- Dark Theme Colors -->
+    <color name="dark_background">#121212</color>
+    <color name="dark_surface">#1E1E1E</color>
+    <color name="dark_text_primary">#FFFFFF</color>
+    <color name="dark_text_secondary">#B0B0B0</color>
 </resources>

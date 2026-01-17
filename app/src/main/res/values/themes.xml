@@ -1,20 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.PantryPal" parent="Theme.Material3.Light.NoActionBar">
+    <style name="Theme.PantryPal" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/primary_variant</item>
         <item name="colorOnPrimary">@color/white</item>
+
         <item name="colorSecondary">@color/secondary</item>
         <item name="colorSecondaryVariant">@color/secondary_variant</item>
         <item name="colorOnSecondary">@color/white</item>
-        <item name="android:statusBarColor">@color/primary_dark</item>
-        <item name="android:windowBackground">@color/background</item>
+
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+
+        <!-- Custom Attributes -->
+        <item name="colorBackground">@color/background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnBackground">@color/text_primary</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="dividerColor">@color/divider</item>
+
+        <!-- Custom Styles -->
+        <item name="searchViewStyle">@style/Widget.App.SearchView</item>
     </style>
 
     <style name="Theme.PantryPal.Splash" parent="Theme.PantryPal">
-        <item name="android:statusBarColor">@color/primary</item>
-        <item name="android:windowBackground">@color/primary</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="android:windowBackground">?attr/colorPrimary</item>
+    </style>
+
+    <!-- Custom SearchView Style -->
+    <style name="Widget.App.SearchView" parent="Widget.AppCompat.SearchView">
+        <item name="queryHint">@string/search_hint</item>
+        <item name="searchIcon">@drawable/ic_search</item>
+        <item name="closeIcon">@drawable/ic_close</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="android:textColorHint">?attr/colorOnSurface</item>
     </style>
 
 </resources>

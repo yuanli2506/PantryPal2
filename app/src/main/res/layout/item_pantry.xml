@@ -48,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Whole Milk"
-                android:textColor="@color/text_primary"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:maxLines="1"
@@ -60,7 +60,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:text="Dairy • 1 liter"
-                android:textColor="@color/text_secondary"
+                android:textColor="?attr/colorOnSurface"
+                android:alpha="0.6"
                 android:textSize="12sp" />
 
             <TextView
@@ -69,7 +70,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:text="Exp: Dec 15, 2024"
-                android:textColor="@color/text_secondary"
+                android:textColor="?attr/colorOnSurface"
+                android:alpha="0.6"
                 android:textSize="12sp" />
 
         </LinearLayout>
@@ -87,7 +89,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="5 days"
-                android:textColor="@color/primary"
+                android:textColor="?attr/colorPrimary"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -102,7 +104,8 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Delete"
             android:src="@drawable/ic_delete"
-            app:tint="@color/text_secondary" />
+            app:tint="?attr/colorOnSurface"
+            android:alpha="0.6" />
 
     </LinearLayout>
 

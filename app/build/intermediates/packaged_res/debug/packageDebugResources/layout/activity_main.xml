@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="?attr/colorBackground">
 
     <!-- Navigation Host Fragment -->
     <androidx.fragment.app.FragmentContainerView
@@ -37,7 +37,9 @@
         android:id="@+id/bottomNavigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/surface"
+        android:background="@drawable/bg_bottom_nav"
+        app:itemIconTint="@color/bottom_nav_item_color"
+        app:itemTextColor="@color/bottom_nav_item_color"
         app:menu="@menu/bottom_nav_menu"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"

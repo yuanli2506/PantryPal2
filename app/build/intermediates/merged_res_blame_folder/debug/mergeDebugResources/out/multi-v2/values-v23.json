@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.pantrypal.app-mergeDebugResources-58:/values-v23/values-v23.xml",
+            "outputFile": "com.example.pantrypal.app-mergeDebugResources-2:/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\8.13\\transforms\\c7a9839d61ee2321d896ea7d32a95a16\\transformed\\material-1.11.0\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\ASUS\\.gradle\\caches\\8.13\\transforms\\c7a9839d61ee2321d896ea7d32a95a16\\transformed\\material-1.11.0\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,5,9,13,16,19,22,25,28,32",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\8.13\\transforms\\f4340bd1ea87c28301dc9e3a1fed6488\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\ASUS\\.gradle\\caches\\8.13\\transforms\\f4340bd1ea87c28301dc9e3a1fed6488\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -42,7 +42,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\8.13\\transforms\\2bed0a41f493af2cd7d9d9bdcd945eec\\transformed\\work-runtime-2.9.0\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\ASUS\\.gradle\\caches\\8.13\\transforms\\2bed0a41f493af2cd7d9d9bdcd945eec\\transformed\\work-runtime-2.9.0\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -52,7 +52,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\8.13\\transforms\\eae9554c5d57867ed8ba74c234b07243\\transformed\\appcompat-1.6.1\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\ASUS\\.gradle\\caches\\8.13\\transforms\\eae9554c5d57867ed8ba74c234b07243\\transformed\\appcompat-1.6.1\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",

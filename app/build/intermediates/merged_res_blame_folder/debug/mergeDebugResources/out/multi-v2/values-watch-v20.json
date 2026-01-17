@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.pantrypal.app-mergeDebugResources-58:/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "com.example.pantrypal.app-mergeDebugResources-2:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\8.13\\transforms\\bf6a54b0e65fc7ea030e4c68494a9d53\\transformed\\core-splashscreen-1.0.1\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "source": "C:\\Users\\ASUS\\.gradle\\caches\\8.13\\transforms\\bf6a54b0e65fc7ea030e4c68494a9d53\\transformed\\core-splashscreen-1.0.1\\res\\values-watch-v20\\values-watch-v20.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\8.13\\transforms\\eae9554c5d57867ed8ba74c234b07243\\transformed\\appcompat-1.6.1\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "source": "C:\\Users\\ASUS\\.gradle\\caches\\8.13\\transforms\\eae9554c5d57867ed8ba74c234b07243\\transformed\\appcompat-1.6.1\\res\\values-watch-v20\\values-watch-v20.xml",
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",

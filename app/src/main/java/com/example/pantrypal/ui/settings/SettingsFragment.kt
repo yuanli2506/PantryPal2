@@ -1,23 +1,23 @@
 package com.example.pantrypal.ui.settings
 
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.example.pantrypal.databinding.FragmentSettingsBinding
+import com.example.pantrypal.ui.MainActivity
 import com.example.pantrypal.ui.auth.LoginActivity
+import com.example.pantrypal.util.NotificationReceiver
+import com.example.pantrypal.util.NotificationScheduler
 import com.example.pantrypal.util.PreferenceManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import android.content.Context
-import com.example.pantrypal.ui.MainActivity
-import com.example.pantrypal.util.NotificationScheduler
-import android.app.AlarmManager
-import android.app.PendingIntent
-import com.example.pantrypal.util.NotificationReceiver
 import java.util.Calendar
-
 
 class SettingsFragment : Fragment() {
 
@@ -39,16 +39,17 @@ class SettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         preferenceManager = PreferenceManager(requireContext())
-        
+
         setupProfile()
         setupNotificationSettings()
+        setupAppearanceSettings()
         setupClickListeners()
     }
 
     private fun setupProfile() {
         binding.tvUserName.text = preferenceManager.getUserName() ?: "Guest"
         binding.tvUserEmail.text = preferenceManager.getUserEmail() ?: "Not logged in"
-        
+
         // Show first letter as avatar
         val name = preferenceManager.getUserName() ?: "G"
         binding.tvAvatarLetter.text = name.first().uppercase()
@@ -58,10 +59,14 @@ class SettingsFragment : Fragment() {
         // Load saved preferences
         binding.switchExpiryReminders.isChecked = preferenceManager.isNotificationsEnabled()
         binding.switchDailySummary.isChecked = preferenceManager.isDailySummaryEnabled()
-        
+
         // Update reminder days text
         val reminderDays = preferenceManager.getReminderDays()
         binding.tvReminderDays.text = "$reminderDays day(s) before"
+    }
+
+    private fun setupAppearanceSettings() {
+        binding.switchDarkMode.isChecked = preferenceManager.isDarkModeEnabled()
     }
 
     private fun setupClickListeners() {
@@ -78,6 +83,16 @@ class SettingsFragment : Fragment() {
         // Reminder days setting
         binding.layoutReminderDays.setOnClickListener {
             showReminderDaysDialog()
+        }
+
+        // Dark Mode toggle
+        binding.switchDarkMode.setOnCheckedChangeListener { _, isChecked ->
+            preferenceManager.setDarkModeEnabled(isChecked)
+            updateTheme(isChecked)
+        }
+
+        binding.layoutDarkMode.setOnClickListener {
+            binding.switchDarkMode.toggle()
         }
 
         // Edit profile
@@ -100,6 +115,16 @@ class SettingsFragment : Fragment() {
             true
         }
     }
+
+    private fun updateTheme(isDarkMode: Boolean) {
+        val mode = if (isDarkMode) {
+            AppCompatDelegate.MODE_NIGHT_YES
+        } else {
+            AppCompatDelegate.MODE_NIGHT_NO
+        }
+        AppCompatDelegate.setDefaultNightMode(mode)
+    }
+
     private fun showTestOptions() {
         val options = arrayOf(
             "📩 Instant Test",
@@ -123,6 +148,7 @@ class SettingsFragment : Fragment() {
             }
             .show()
     }
+
     private fun testNotification() {
         val notificationManager = requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as android.app.NotificationManager
 
@@ -155,7 +181,7 @@ class SettingsFragment : Fragment() {
             putExtra(NotificationReceiver.EXTRA_MESSAGE, "This is a test notification!")
             putExtra(NotificationReceiver.EXTRA_NOTIFICATION_ID, 9999)
         }
-        val pendingIntent = PendingIntent.getBroadcast(requireContext(), 9999, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        val pendingIntent = PendingIntent.getBroadcast(requireContext(), 9999, intent, PendingIntent.FLAG_UPDATE_CURRENT or android.app.PendingIntent.FLAG_IMMUTABLE)
 
         alarmManager.setExactAndAllowWhileIdle(
             AlarmManager.RTC_WAKEUP,
@@ -185,6 +211,7 @@ class SettingsFragment : Fragment() {
             .setPositiveButton("OK", null)
             .show()
     }
+
     private fun showReminderDaysDialog() {
         val options = arrayOf("1 day before", "2 days before", "3 days before", "7 days before")
         val values = arrayOf(1, 2, 3, 7)
@@ -229,7 +256,7 @@ class SettingsFragment : Fragment() {
 
     private fun performLogout() {
         preferenceManager.clearSession()
-        
+
         val intent = Intent(requireContext(), LoginActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
