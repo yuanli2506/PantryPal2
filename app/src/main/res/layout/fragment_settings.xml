@@ -39,12 +39,15 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp">
 
+                    <!-- Default Avatar Background -->
                     <View
+                        android:id="@+id/viewAvatarBackground"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/bg_circle"
                         android:backgroundTint="?attr/colorPrimary" />
 
+                    <!-- Avatar Letter (shown when no profile picture) -->
                     <TextView
                         android:id="@+id/tvAvatarLetter"
                         android:layout_width="match_parent"
@@ -54,6 +57,15 @@
                         android:textColor="?attr/colorOnPrimary"
                         android:textSize="24sp"
                         android:textStyle="bold" />
+
+                    <!-- Profile Picture ImageView (shown when user has profile picture) -->
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/ivSettingsProfilePicture"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:visibility="gone"
+                        app:shapeAppearanceOverlay="@style/CircleImageView" />
 
                 </FrameLayout>
 

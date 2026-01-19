@@ -94,8 +94,9 @@ class LoginActivity : AppCompatActivity() {
                     // Save user session
                     preferenceManager.setLoggedIn(true)
                     preferenceManager.saveUserId(user.id)
-                    preferenceManager.saveUserName(user.name)
+                    preferenceManager.saveUserName(user.name)  // ← Gets latest name from DB
                     preferenceManager.saveUserEmail(user.email)
+                    preferenceManager.saveProfilePicture(user.profilePicture)  //
                     
                     showLoading(false)
                     Toast.makeText(this@LoginActivity, "Welcome, ${user.name}!", Toast.LENGTH_SHORT).show()

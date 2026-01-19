@@ -25,6 +25,12 @@ interface UserDao {
     @Update
     suspend fun updateUser(user: User)
 
+    @Query("UPDATE users SET name = :name WHERE id = :userId")
+    suspend fun updateUserName(userId: Int, name: String)
+
+    @Query("UPDATE users SET profile_picture = :profilePicture WHERE id = :userId")
+    suspend fun updateProfilePicture(userId: Int, profilePicture: String?)
+
     @Delete
     suspend fun deleteUser(user: User)
 

@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.pantrypal.data.model.PantryItem
 import com.example.pantrypal.data.model.ShoppingItem
@@ -11,16 +12,17 @@ import com.example.pantrypal.data.model.User
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-
 @Database(
     entities = [
         PantryItem::class,
         ShoppingItem::class,
         User::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
+
+
 abstract class PantryDatabase : RoomDatabase() {
 
     abstract fun pantryDao(): PantryDao
@@ -30,22 +32,30 @@ abstract class PantryDatabase : RoomDatabase() {
     companion object {
         @Volatile
         private var INSTANCE: PantryDatabase? = null
-
+        private val MIGRATION_1_2 = object : Migration(1, 2) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("ALTER TABLE users ADD COLUMN profile_picture TEXT")
+            }
+        }
         fun getDatabase(context: Context): PantryDatabase {
+
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     PantryDatabase::class.java,
                     "pantry_database"
                 )
+
                     .addCallback(DatabaseCallback())
-                    .fallbackToDestructiveMigration()
+                    .addMigrations(MIGRATION_1_2)  // 👈 Add migration here
+                    .fallbackToDestructiveMigration()  // Fallback if migration fails
                     .build()
                 INSTANCE = instance
                 instance
             }
         }
     }
+
 
     // Callback to populate database with sample data (optional)
     private class DatabaseCallback : RoomDatabase.Callback() {

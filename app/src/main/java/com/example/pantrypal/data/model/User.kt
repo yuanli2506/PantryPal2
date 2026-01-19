@@ -1,7 +1,7 @@
-package com.example.pantrypal.data.model
+package com.example.pantrypal. data.model
 
 import androidx.room.ColumnInfo
-import androidx.room.Entity
+import androidx. room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "users")
@@ -17,6 +17,9 @@ data class User(
 
     @ColumnInfo(name = "name")
     val name: String,
+
+    @ColumnInfo(name = "profile_picture")
+    val profilePicture: String?  = null,
 
     @ColumnInfo(name = "created_at")
     val createdAt: Long = System.currentTimeMillis()

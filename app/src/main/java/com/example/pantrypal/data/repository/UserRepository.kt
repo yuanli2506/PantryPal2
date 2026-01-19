@@ -1,8 +1,8 @@
 package com.example.pantrypal.data.repository
 
-import com.example.pantrypal.data.local.UserDao
-import com.example.pantrypal.data.model.User
-import kotlinx.coroutines.flow.Flow
+import com.example. pantrypal.data.local. UserDao
+import com.example. pantrypal.data.model. User
+import kotlinx.coroutines.flow. Flow
 
 class UserRepository(private val userDao: UserDao) {
 
@@ -41,8 +41,18 @@ class UserRepository(private val userDao: UserDao) {
     }
 
     // Update user
-    suspend fun updateUser(user: User) {
+    suspend fun updateUser(user:  User) {
         userDao.updateUser(user)
+    }
+
+    // Update user name only
+    suspend fun updateUserName(userId: Int, name: String) {
+        userDao.updateUserName(userId, name)
+    }
+
+    // Update profile picture only
+    suspend fun updateProfilePicture(userId: Int, profilePicture: String?) {
+        userDao.updateProfilePicture(userId, profilePicture)
     }
 
     // Check if email exists

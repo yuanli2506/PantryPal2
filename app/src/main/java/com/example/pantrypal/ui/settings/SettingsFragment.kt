@@ -1,15 +1,32 @@
 package com.example.pantrypal.ui.settings
 
+import android.Manifest
+import android.app.Activity
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
+import com.example.pantrypal.PantryPalApplication
+import com.example. pantrypal.R
+import com.example.pantrypal.data.repository.UserRepository
+import com.example.pantrypal.databinding.DialogEditProfileBinding
 import com.example.pantrypal.databinding.FragmentSettingsBinding
 import com.example.pantrypal.ui.MainActivity
 import com.example.pantrypal.ui.auth.LoginActivity
@@ -17,6 +34,7 @@ import com.example.pantrypal.util.NotificationReceiver
 import com.example.pantrypal.util.NotificationScheduler
 import com.example.pantrypal.util.PreferenceManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.launch
 import java.util.Calendar
 
 class SettingsFragment : Fragment() {
@@ -25,6 +43,39 @@ class SettingsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var preferenceManager: PreferenceManager
+    private lateinit var userRepository:  UserRepository
+
+    // For edit profile dialog
+    private var dialogBinding: DialogEditProfileBinding? = null
+    private var selectedImageUri: Uri? = null
+
+    // Image picker launcher
+    private val pickImageLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result. resultCode == Activity.RESULT_OK) {
+            result.data?.data?.let { uri ->
+                selectedImageUri = uri
+                // Take persistable URI permission for the image
+                requireContext().contentResolver.takePersistableUriPermission(
+                    uri,
+                    Intent.FLAG_GRANT_READ_URI_PERMISSION
+                )
+                updateDialogProfilePicture(uri)
+            }
+        }
+    }
+
+    // Permission launcher for storage/media access
+    private val requestPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        if (isGranted) {
+            openImagePicker()
+        } else {
+            Toast.makeText(requireContext(), "Permission required to select image", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,6 +91,10 @@ class SettingsFragment : Fragment() {
 
         preferenceManager = PreferenceManager(requireContext())
 
+        // Initialize UserRepository
+        val database = (requireActivity().application as PantryPalApplication).database
+        userRepository = UserRepository(database. userDao())
+
         setupProfile()
         setupNotificationSettings()
         setupAppearanceSettings()
@@ -50,9 +105,54 @@ class SettingsFragment : Fragment() {
         binding.tvUserName.text = preferenceManager.getUserName() ?: "Guest"
         binding.tvUserEmail.text = preferenceManager.getUserEmail() ?: "Not logged in"
 
-        // Show first letter as avatar
+        // Check if user has a profile picture
+        val profilePictureUri = preferenceManager.getProfilePicture()
+
+        if (! profilePictureUri.isNullOrEmpty()) {
+            // User has a profile picture - show ImageView, hide avatar letter
+            try {
+                val uri = Uri.parse(profilePictureUri)
+                binding.ivSettingsProfilePicture.visibility = View.VISIBLE
+                binding.tvAvatarLetter.visibility = View.GONE
+                binding. viewAvatarBackground.visibility = View.GONE
+
+                Glide.with(this)
+                    .load(uri)
+                    .circleCrop()
+                    .placeholder(R.drawable.bg_circle)
+                    .error(R.drawable.bg_circle)
+                    .into(binding.ivSettingsProfilePicture)
+            } catch (e: Exception) {
+                // If loading fails, show avatar letter instead
+                showAvatarLetter()
+            }
+        } else {
+            // No profile picture - show avatar letter
+            showAvatarLetter()
+        }
+    }
+
+    private fun showAvatarLetter() {
+        binding.ivSettingsProfilePicture.visibility = View.GONE
+        binding.tvAvatarLetter. visibility = View.VISIBLE
+        binding.viewAvatarBackground. visibility = View.VISIBLE
+
         val name = preferenceManager.getUserName() ?: "G"
         binding.tvAvatarLetter.text = name.first().uppercase()
+    }
+    private fun loadProfilePicture(uriString: String) {
+        try {
+            val uri = Uri.parse(uriString)
+            // If you have an ImageView for profile picture in settings, load it here
+            // For now, we'll just update the avatar letter
+            binding.tvAvatarLetter.visibility = View.VISIBLE
+            val name = preferenceManager.getUserName() ?: "G"
+            binding.tvAvatarLetter.text = name.first().uppercase()
+        } catch (e: Exception) {
+            val name = preferenceManager.getUserName() ?: "G"
+            binding.tvAvatarLetter.text = name.first().uppercase()
+            binding.tvAvatarLetter.visibility = View.VISIBLE
+        }
     }
 
     private fun setupNotificationSettings() {
@@ -95,9 +195,9 @@ class SettingsFragment : Fragment() {
             binding.switchDarkMode.toggle()
         }
 
-        // Edit profile
+        // Edit profile - IMPLEMENTED
         binding.layoutEditProfile.setOnClickListener {
-            // TODO: Implement edit profile
+            showEditProfileDialog()
         }
 
         // About
@@ -114,6 +214,192 @@ class SettingsFragment : Fragment() {
             showTestOptions()
             true
         }
+    }
+
+    private fun showEditProfileDialog() {
+        dialogBinding = DialogEditProfileBinding.inflate(layoutInflater)
+
+        dialogBinding?.let { binding ->
+            // Set current values
+            val currentName = preferenceManager.getUserName() ?: ""
+            val currentEmail = preferenceManager.getUserEmail() ?: ""
+            val currentProfilePicture = preferenceManager.getProfilePicture()
+
+            binding.etUsername.setText(currentName)
+            binding.etEmail.setText(currentEmail)
+
+            // Set avatar letter
+            if (currentName.isNotEmpty()) {
+                binding.tvDialogAvatarLetter.text = currentName.first().uppercase()
+            }
+
+            // Load profile picture if exists
+            if (currentProfilePicture != null) {
+                try {
+                    val uri = Uri.parse(currentProfilePicture)
+                    binding.ivProfilePicture.visibility = View.VISIBLE
+                    binding.tvDialogAvatarLetter.visibility = View.GONE
+                    binding.viewAvatarBackground.visibility = View.GONE
+                    Glide.with(this)
+                        .load(uri)
+                        .circleCrop()
+                        .into(binding.ivProfilePicture)
+                    selectedImageUri = uri
+                } catch (e: Exception) {
+                    binding.ivProfilePicture.visibility = View.GONE
+                    binding.tvDialogAvatarLetter.visibility = View.VISIBLE
+                    binding.viewAvatarBackground.visibility = View.VISIBLE
+                }
+            }
+
+            // Click listener for changing profile picture
+            binding.layoutCameraOverlay.setOnClickListener {
+                checkPermissionAndOpenPicker()
+            }
+
+            binding.ivProfilePicture.setOnClickListener {
+                checkPermissionAndOpenPicker()
+            }
+
+            binding.tvDialogAvatarLetter.setOnClickListener {
+                checkPermissionAndOpenPicker()
+            }
+
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle("Edit Profile")
+                .setView(binding.root)
+                .setPositiveButton("Save") { _, _ ->
+                    saveProfile(binding)
+                }
+                .setNegativeButton("Cancel") { dialog, _ ->
+                    selectedImageUri = null
+                    dialog.dismiss()
+                }
+                .setOnDismissListener {
+                    dialogBinding = null
+                }
+                .show()
+        }
+    }
+
+    private fun checkPermissionAndOpenPicker() {
+        when {
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU -> {
+                // Android 13+ uses READ_MEDIA_IMAGES
+                if (ContextCompat.checkSelfPermission(
+                        requireContext(),
+                        Manifest.permission.READ_MEDIA_IMAGES
+                    ) == PackageManager.PERMISSION_GRANTED
+                ) {
+                    openImagePicker()
+                } else {
+                    requestPermissionLauncher. launch(Manifest.permission.READ_MEDIA_IMAGES)
+                }
+            }
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q -> {
+                // Android 10-12 doesn't need explicit permission for picker
+                openImagePicker()
+            }
+            else -> {
+                // Android 9 and below
+                if (ContextCompat.checkSelfPermission(
+                        requireContext(),
+                        Manifest. permission.READ_EXTERNAL_STORAGE
+                    ) == PackageManager.PERMISSION_GRANTED
+                ) {
+                    openImagePicker()
+                } else {
+                    requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+                }
+            }
+        }
+    }
+    private fun openImagePicker() {
+        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+            addCategory(Intent.CATEGORY_OPENABLE)
+            type = "image/*"
+            addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION)
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        }
+        pickImageLauncher.launch(intent)
+    }
+
+    private fun updateDialogProfilePicture(uri: Uri) {
+        dialogBinding?.let{ binding ->
+            binding.ivProfilePicture.visibility = View.VISIBLE
+            binding.tvDialogAvatarLetter.visibility = View.GONE
+            binding.viewAvatarBackground.visibility = View.GONE
+
+            Glide.with(this)
+                .load(uri)
+                .circleCrop()
+                .into(binding.ivProfilePicture)
+        }
+    }
+
+    private fun saveProfile(dialogBinding: DialogEditProfileBinding) {
+        val newName = dialogBinding.etUsername.text.toString().trim()
+
+        // Validate name
+        if (newName.isEmpty()) {
+            Toast.makeText(requireContext(), "Username cannot be empty", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (newName.length < 2) {
+            Toast.makeText(requireContext(), "Username must be at least 2 characters", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val userId = preferenceManager.getUserId()
+        val profilePictureUri = selectedImageUri?. toString()
+
+        // Update database FIRST, then update preferences
+        if (userId != -1) {
+            lifecycleScope.launch {
+                try {
+                    // Get current user from database
+                    val currentUser = userRepository.getUserById(userId)
+
+                    if (currentUser != null) {
+                        // Create updated user object
+                        val updatedUser = currentUser.copy(
+                            name = newName,
+                            profilePicture = profilePictureUri ?: currentUser.profilePicture
+                        )
+
+                        // Update in database
+                        userRepository.updateUser(updatedUser)
+
+                        // Now update SharedPreferences (on main thread)
+                        withContext(Dispatchers.Main) {
+                            preferenceManager.saveUserName(newName)
+                            profilePictureUri?.let {
+                                preferenceManager.saveProfilePicture(it)
+                            }
+
+                            // Update UI
+                            setupProfile()
+
+                            Toast.makeText(requireContext(), "Profile updated successfully!", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                } catch (e: Exception) {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(requireContext(), "Failed to update profile: ${e.message}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        } else {
+            // Guest user - only save to preferences
+            preferenceManager.saveUserName(newName)
+            profilePictureUri?.let { preferenceManager.saveProfilePicture(it) }
+            setupProfile()
+            Toast.makeText(requireContext(), "Profile updated!", Toast.LENGTH_SHORT).show()
+        }
+
+        // Reset selected image URI
+        selectedImageUri = null
     }
 
     private fun updateTheme(isDarkMode: Boolean) {
@@ -266,5 +552,6 @@ class SettingsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        dialogBinding = null
     }
 }

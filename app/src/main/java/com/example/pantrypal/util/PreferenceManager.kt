@@ -1,22 +1,23 @@
 package com.example.pantrypal.util
 
-import android.content.Context
+import android.content. Context
 import android.content.SharedPreferences
 
 class PreferenceManager(context: Context) {
 
-    private val sharedPreferences: SharedPreferences = 
+    private val sharedPreferences: SharedPreferences =
         context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
 
     companion object {
         private const val PREF_NAME = "pantry_pal_prefs"
-        
+
         // Session keys
         private const val KEY_IS_LOGGED_IN = "is_logged_in"
         private const val KEY_USER_ID = "user_id"
         private const val KEY_USER_NAME = "user_name"
         private const val KEY_USER_EMAIL = "user_email"
-        
+        private const val KEY_PROFILE_PICTURE = "profile_picture"
+
         // Settings keys
         private const val KEY_NOTIFICATIONS_ENABLED = "notifications_enabled"
         private const val KEY_DAILY_SUMMARY_ENABLED = "daily_summary_enabled"
@@ -26,7 +27,7 @@ class PreferenceManager(context: Context) {
     }
 
     // ==================== Session Management ====================
-    
+
     fun isLoggedIn(): Boolean {
         return sharedPreferences.getBoolean(KEY_IS_LOGGED_IN, false)
     }
@@ -43,7 +44,7 @@ class PreferenceManager(context: Context) {
         return sharedPreferences.getInt(KEY_USER_ID, -1)
     }
 
-    fun saveUserName(name: String) {
+    fun saveUserName(name:  String) {
         sharedPreferences.edit().putString(KEY_USER_NAME, name).apply()
     }
 
@@ -59,17 +60,26 @@ class PreferenceManager(context: Context) {
         return sharedPreferences.getString(KEY_USER_EMAIL, null)
     }
 
+    fun saveProfilePicture(uri: String?) {
+        sharedPreferences.edit().putString(KEY_PROFILE_PICTURE, uri).apply()
+    }
+
+    fun getProfilePicture(): String? {
+        return sharedPreferences.getString(KEY_PROFILE_PICTURE, null)
+    }
+
     fun clearSession() {
         sharedPreferences.edit()
             .remove(KEY_IS_LOGGED_IN)
             .remove(KEY_USER_ID)
             .remove(KEY_USER_NAME)
             .remove(KEY_USER_EMAIL)
+            .remove(KEY_PROFILE_PICTURE)
             .apply()
     }
 
     // ==================== Notification Settings ====================
-    
+
     fun isNotificationsEnabled(): Boolean {
         return sharedPreferences.getBoolean(KEY_NOTIFICATIONS_ENABLED, true)
     }
@@ -90,7 +100,7 @@ class PreferenceManager(context: Context) {
         return sharedPreferences.getInt(KEY_REMINDER_DAYS, 3)
     }
 
-    fun setReminderDays(days: Int) {
+    fun setReminderDays(days:  Int) {
         sharedPreferences.edit().putInt(KEY_REMINDER_DAYS, days).apply()
     }
 
@@ -109,6 +119,6 @@ class PreferenceManager(context: Context) {
     }
 
     fun setDarkModeEnabled(enabled: Boolean) {
-        sharedPreferences.edit().putBoolean(KEY_DARK_MODE_ENABLED, enabled).apply()
+        sharedPreferences. edit().putBoolean(KEY_DARK_MODE_ENABLED, enabled).apply()
     }
 }
