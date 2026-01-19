@@ -40,6 +40,7 @@ class LoginActivity : AppCompatActivity() {
 
             if (validateInput(email, password)) {
                 performLogin(email, password)
+
             }
         }
 
