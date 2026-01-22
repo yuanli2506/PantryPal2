@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/background">
+    android:background="?attr/colorBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             android:layout_height="?attr/actionBarSize"
             app:navigationIcon="@drawable/ic_back"
             app:title="Item Details"
-            app:titleTextColor="@color/text_primary"
+            app:titleTextColor="?attr/colorOnSurface"
             app:menu="@menu/menu_item_detail" />
 
         <!-- Status Indicator -->
@@ -54,7 +54,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Item Name"
-                        android:textColor="@color/text_primary"
+                        android:textColor="?attr/colorOnSurface"
                         android:textSize="24sp"
                         android:textStyle="bold" />
 
@@ -64,7 +64,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="🥛 Dairy"
-                        android:textColor="@color/text_secondary"
+                        android:textColor="?attr/colorOnSurface"
+                        android:alpha="0.6"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -117,7 +118,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Expires in 5 days"
-                        android:textColor="@color/text_primary"
+                        android:textColor="?attr/colorOnSurface"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
@@ -127,7 +128,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="Dec 15, 2024"
-                        android:textColor="@color/text_secondary"
+                        android:textColor="?attr/colorOnSurface"
+                        android:alpha="0.6"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -140,7 +142,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:text="Details"
-                android:textColor="@color/text_primary"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -168,7 +170,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Quantity"
-                            android:textColor="@color/text_secondary"
+                            android:textColor="?attr/colorOnSurface"
+                            android:alpha="0.6"
                             android:textSize="14sp" />
 
                         <TextView
@@ -176,7 +179,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1 liter"
-                            android:textColor="@color/text_primary"
+                            android:textColor="?attr/colorOnSurface"
                             android:textSize="14sp" />
 
                     </LinearLayout>
@@ -185,7 +188,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginVertical="12dp"
-                        android:background="@color/divider" />
+                        android:background="?attr/dividerColor" />
 
                     <!-- Purchase Date -->
                     <LinearLayout
@@ -198,7 +201,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Purchase Date"
-                            android:textColor="@color/text_secondary"
+                            android:textColor="?attr/colorOnSurface"
+                            android:alpha="0.6"
                             android:textSize="14sp" />
 
                         <TextView
@@ -206,7 +210,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Dec 10, 2024"
-                            android:textColor="@color/text_primary"
+                            android:textColor="?attr/colorOnSurface"
                             android:textSize="14sp" />
 
                     </LinearLayout>
@@ -228,7 +232,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Notes"
-                    android:textColor="@color/text_primary"
+                    android:textColor="?attr/colorOnSurface"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -245,7 +249,8 @@
                         android:layout_height="wrap_content"
                         android:padding="16dp"
                         android:text="Notes will appear here"
-                        android:textColor="@color/text_secondary"
+                        android:textColor="?attr/colorOnSurface"
+                        android:alpha="0.6"
                         android:textSize="14sp" />
 
                 </com.google.android.material.card.MaterialCardView>
@@ -266,7 +271,7 @@
                     android:layout_height="48dp"
                     android:text="✓ Mark as Consumed"
                     app:cornerRadius="8dp"
-                    app:strokeColor="@color/primary" />
+                    app:strokeColor="?attr/colorPrimary" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnEdit"

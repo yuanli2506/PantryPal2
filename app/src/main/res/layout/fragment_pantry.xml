@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="?attr/colorBackground">
 
     <!-- Toolbar -->
     <com.google.android.material.appbar.MaterialToolbar
@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
         app:title="My Pantry"
-        app:titleTextColor="@color/text_primary"
+        app:titleTextColor="?attr/colorOnSurface"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,13 +20,13 @@
     <!-- Search View -->
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
+        style="@style/Widget.App.SearchView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/bg_search"
         app:iconifiedByDefault="false"
-        app:queryHint="Search items..."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
@@ -98,7 +98,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:text="0 items"
-        android:textColor="@color/text_secondary"
+        android:textColor="?attr/colorOnSurface"
+        android:alpha="0.6"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/chipScrollView" />
@@ -158,7 +159,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Your pantry is empty"
-            android:textColor="@color/text_primary"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -167,7 +168,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Tap + to add your first item"
-            android:textColor="@color/text_secondary"
+            android:textColor="?attr/colorOnSurface"
+            android:alpha="0.6"
             android:textSize="14sp" />
 
     </LinearLayout>

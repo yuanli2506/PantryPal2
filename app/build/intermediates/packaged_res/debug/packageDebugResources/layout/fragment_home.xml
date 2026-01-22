@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="?attr/colorBackground">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -225,7 +225,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="⚠️ Expiring Soon"
-                android:textColor="@color/text_primary"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -234,7 +234,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="Items expiring within 7 days"
-                android:textColor="@color/text_secondary"
+                android:textColor="?attr/colorOnSurface"
+                android:alpha="0.6"
                 android:textSize="14sp" />
 
             <!-- Empty State -->
@@ -245,7 +246,8 @@
                 android:layout_marginTop="32dp"
                 android:gravity="center"
                 android:text="🎉 No items expiring soon!\nYour pantry is in good shape."
-                android:textColor="@color/text_secondary"
+                android:textColor="?attr/colorOnSurface"
+                android:alpha="0.6"
                 android:textSize="16sp"
                 android:visibility="gone" />
 

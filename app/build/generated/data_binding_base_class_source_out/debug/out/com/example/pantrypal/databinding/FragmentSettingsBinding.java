@@ -26,6 +26,9 @@ public final class FragmentSettingsBinding implements ViewBinding {
   public final LinearLayout layoutAbout;
 
   @NonNull
+  public final LinearLayout layoutDarkMode;
+
+  @NonNull
   public final LinearLayout layoutEditProfile;
 
   @NonNull
@@ -36,6 +39,9 @@ public final class FragmentSettingsBinding implements ViewBinding {
 
   @NonNull
   public final SwitchMaterial switchDailySummary;
+
+  @NonNull
+  public final SwitchMaterial switchDarkMode;
 
   @NonNull
   public final SwitchMaterial switchExpiryReminders;
@@ -56,17 +62,20 @@ public final class FragmentSettingsBinding implements ViewBinding {
   public final TextView tvUserName;
 
   private FragmentSettingsBinding(@NonNull ScrollView rootView, @NonNull LinearLayout layoutAbout,
-      @NonNull LinearLayout layoutEditProfile, @NonNull LinearLayout layoutLogout,
-      @NonNull LinearLayout layoutReminderDays, @NonNull SwitchMaterial switchDailySummary,
+      @NonNull LinearLayout layoutDarkMode, @NonNull LinearLayout layoutEditProfile,
+      @NonNull LinearLayout layoutLogout, @NonNull LinearLayout layoutReminderDays,
+      @NonNull SwitchMaterial switchDailySummary, @NonNull SwitchMaterial switchDarkMode,
       @NonNull SwitchMaterial switchExpiryReminders, @NonNull MaterialToolbar toolbar,
       @NonNull TextView tvAvatarLetter, @NonNull TextView tvReminderDays,
       @NonNull TextView tvUserEmail, @NonNull TextView tvUserName) {
     this.rootView = rootView;
     this.layoutAbout = layoutAbout;
+    this.layoutDarkMode = layoutDarkMode;
     this.layoutEditProfile = layoutEditProfile;
     this.layoutLogout = layoutLogout;
     this.layoutReminderDays = layoutReminderDays;
     this.switchDailySummary = switchDailySummary;
+    this.switchDarkMode = switchDarkMode;
     this.switchExpiryReminders = switchExpiryReminders;
     this.toolbar = toolbar;
     this.tvAvatarLetter = tvAvatarLetter;
@@ -108,6 +117,12 @@ public final class FragmentSettingsBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.layoutDarkMode;
+      LinearLayout layoutDarkMode = ViewBindings.findChildViewById(rootView, id);
+      if (layoutDarkMode == null) {
+        break missingId;
+      }
+
       id = R.id.layoutEditProfile;
       LinearLayout layoutEditProfile = ViewBindings.findChildViewById(rootView, id);
       if (layoutEditProfile == null) {
@@ -129,6 +144,12 @@ public final class FragmentSettingsBinding implements ViewBinding {
       id = R.id.switchDailySummary;
       SwitchMaterial switchDailySummary = ViewBindings.findChildViewById(rootView, id);
       if (switchDailySummary == null) {
+        break missingId;
+      }
+
+      id = R.id.switchDarkMode;
+      SwitchMaterial switchDarkMode = ViewBindings.findChildViewById(rootView, id);
+      if (switchDarkMode == null) {
         break missingId;
       }
 
@@ -168,9 +189,9 @@ public final class FragmentSettingsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentSettingsBinding((ScrollView) rootView, layoutAbout, layoutEditProfile,
-          layoutLogout, layoutReminderDays, switchDailySummary, switchExpiryReminders, toolbar,
-          tvAvatarLetter, tvReminderDays, tvUserEmail, tvUserName);
+      return new FragmentSettingsBinding((ScrollView) rootView, layoutAbout, layoutDarkMode,
+          layoutEditProfile, layoutLogout, layoutReminderDays, switchDailySummary, switchDarkMode,
+          switchExpiryReminders, toolbar, tvAvatarLetter, tvReminderDays, tvUserEmail, tvUserName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -25,4 +25,7 @@
     <string name="item_updated">Item updated successfully</string>
     <string name="item_deleted">Item deleted</string>
     <string name="confirm_delete">Are you sure you want to delete this item?</string>
+
+    <!-- Search -->
+    <string name="search_hint">Search items...</string>
 </resources>

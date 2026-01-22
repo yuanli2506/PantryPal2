@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="?attr/colorBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:title="Settings"
-            app:titleTextColor="@color/text_primary" />
+            app:titleTextColor="?attr/colorOnSurface" />
 
         <!-- Profile Section -->
         <com.google.android.material.card.MaterialCardView
@@ -43,7 +43,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/bg_circle"
-                        android:backgroundTint="@color/primary" />
+                        android:backgroundTint="?attr/colorPrimary" />
 
                     <TextView
                         android:id="@+id/tvAvatarLetter"
@@ -51,7 +51,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="U"
-                        android:textColor="@android:color/white"
+                        android:textColor="?attr/colorOnPrimary"
                         android:textSize="24sp"
                         android:textStyle="bold" />
 
@@ -69,7 +69,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="User Name"
-                        android:textColor="@color/text_primary"
+                        android:textColor="?attr/colorOnSurface"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -79,7 +79,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="user@email.com"
-                        android:textColor="@color/text_secondary"
+                        android:textColor="?attr/colorOnSurface"
+                        android:alpha="0.6"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -95,7 +96,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="NOTIFICATIONS"
-            android:textColor="@color/text_secondary"
+            android:textColor="?attr/colorOnSurface"
+            android:alpha="0.6"
             android:textSize="12sp"
             android:letterSpacing="0.1" />
 
@@ -128,14 +130,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Expiry Reminders"
-                            android:textColor="@color/text_primary"
+                            android:textColor="?attr/colorOnSurface"
                             android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Get notified before items expire"
-                            android:textColor="@color/text_secondary"
+                            android:textColor="?attr/colorOnSurface"
+                            android:alpha="0.6"
                             android:textSize="12sp" />
 
                     </LinearLayout>
@@ -152,7 +155,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginStart="16dp"
-                    android:background="@color/divider" />
+                    android:background="?attr/dividerColor" />
 
                 <LinearLayout
                     android:id="@+id/layoutReminderDays"
@@ -172,7 +175,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Reminder Time"
-                            android:textColor="@color/text_primary"
+                            android:textColor="?attr/colorOnSurface"
                             android:textSize="16sp" />
 
                         <TextView
@@ -180,7 +183,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="3 day(s) before"
-                            android:textColor="@color/text_secondary"
+                            android:textColor="?attr/colorOnSurface"
+                            android:alpha="0.6"
                             android:textSize="12sp" />
 
                     </LinearLayout>
@@ -189,7 +193,8 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_chevron_right"
-                        app:tint="@color/text_secondary" />
+                        app:tint="?attr/colorOnSurface"
+                        android:alpha="0.6" />
 
                 </LinearLayout>
 
@@ -197,7 +202,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginStart="16dp"
-                    android:background="@color/divider" />
+                    android:background="?attr/dividerColor" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -215,14 +220,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Daily Summary"
-                            android:textColor="@color/text_primary"
+                            android:textColor="?attr/colorOnSurface"
                             android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Get a daily overview at 9 AM"
-                            android:textColor="@color/text_secondary"
+                            android:textColor="?attr/colorOnSurface"
+                            android:alpha="0.6"
                             android:textSize="12sp" />
 
                     </LinearLayout>
@@ -245,7 +251,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:text="ACCOUNT"
-            android:textColor="@color/text_secondary"
+            android:textColor="?attr/colorOnSurface"
+            android:alpha="0.6"
             android:textSize="12sp"
             android:letterSpacing="0.1" />
 
@@ -274,7 +281,8 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_person"
-                        app:tint="@color/text_secondary" />
+                        app:tint="?attr/colorOnSurface"
+                        android:alpha="0.6" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -282,14 +290,15 @@
                         android:layout_marginStart="16dp"
                         android:layout_weight="1"
                         android:text="Edit Profile"
-                        android:textColor="@color/text_primary"
+                        android:textColor="?attr/colorOnSurface"
                         android:textSize="16sp" />
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_chevron_right"
-                        app:tint="@color/text_secondary" />
+                        app:tint="?attr/colorOnSurface"
+                        android:alpha="0.6" />
 
                 </LinearLayout>
 
@@ -297,7 +306,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginStart="56dp"
-                    android:background="@color/divider" />
+                    android:background="?attr/dividerColor" />
 
                 <LinearLayout
                     android:id="@+id/layoutAbout"
@@ -311,7 +320,8 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_info"
-                        app:tint="@color/text_secondary" />
+                        app:tint="?attr/colorOnSurface"
+                        android:alpha="0.6" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -319,14 +329,15 @@
                         android:layout_marginStart="16dp"
                         android:layout_weight="1"
                         android:text="About"
-                        android:textColor="@color/text_primary"
+                        android:textColor="?attr/colorOnSurface"
                         android:textSize="16sp" />
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_chevron_right"
-                        app:tint="@color/text_secondary" />
+                        app:tint="?attr/colorOnSurface"
+                        android:alpha="0.6" />
 
                 </LinearLayout>
 
@@ -334,7 +345,44 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginStart="56dp"
-                    android:background="@color/divider" />
+                    android:background="?attr/dividerColor" />
+                
+                <LinearLayout
+                    android:id="@+id/layoutDarkMode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_dark_mode"
+                        app:tint="?attr/colorOnSurface"
+                        android:alpha="0.6" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:text="Dark Mode"
+                        android:textColor="?attr/colorOnSurface"
+                        android:textSize="16sp" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchDarkMode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="56dp"
+                    android:background="?attr/dividerColor" />
 
                 <LinearLayout
                     android:id="@+id/layoutLogout"
@@ -371,7 +419,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="32dp"
             android:text="PantryPal v1.0"
-            android:textColor="@color/text_secondary"
+            android:textColor="?attr/colorOnSurface"
+            android:alpha="0.6"
             android:textSize="12sp" />
 
     </LinearLayout>

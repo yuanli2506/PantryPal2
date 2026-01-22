@@ -1,8 +1,18 @@
 R_DEF: Internal format may change without notice
 local
+attr colorBackground
+attr colorOnBackground
+attr colorOnSurface
+attr colorSurface
+attr dividerColor
 color background
 color black
+color bottom_nav_item_color
 color danger
+color dark_background
+color dark_surface
+color dark_text_primary
+color dark_text_secondary
 color divider
 color expired
 color fresh
@@ -18,6 +28,7 @@ color text_primary
 color text_secondary
 color warning
 color white
+drawable bg_bottom_nav
 drawable bg_circle
 drawable bg_consumed_badge
 drawable bg_header_gradient
@@ -29,6 +40,7 @@ drawable ic_back
 drawable ic_calendar
 drawable ic_chevron_right
 drawable ic_close
+drawable ic_dark_mode
 drawable ic_delete
 drawable ic_edit
 drawable ic_email
@@ -42,6 +54,7 @@ drawable ic_logout
 drawable ic_notification
 drawable ic_pantry
 drawable ic_person
+drawable ic_search
 drawable ic_settings
 drawable ic_shopping
 id action_delete
@@ -77,6 +90,7 @@ id fabAddShoppingItem
 id homeFragment
 id ivLogo
 id layoutAbout
+id layoutDarkMode
 id layoutEditProfile
 id layoutEmpty
 id layoutLogout
@@ -97,6 +111,7 @@ id spinnerUnit
 id statusIndicator
 id swipeRefresh
 id switchDailySummary
+id switchDarkMode
 id switchExpiryReminders
 id tilCategory
 id tilConfirmPassword
@@ -174,7 +189,9 @@ string nav_pantry
 string nav_settings
 string nav_shopping
 string save
+string search_hint
 style Theme.PantryPal
 style Theme.PantryPal.Splash
+style Widget.App.SearchView
 xml backup_rules
 xml data_extraction_rules

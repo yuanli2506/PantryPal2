@@ -2,7 +2,10 @@ package com.example.pantrypal.ui.detail
 
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -60,6 +63,14 @@ class ItemDetailActivity : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
             title = "Item Details"
         }
+
+        // Get the colorOnSurface color from the theme
+        val typedValue = TypedValue()
+        theme.resolveAttribute(com.google.android.material.R.attr.colorOnSurface, typedValue, true)
+        val colorOnSurface = typedValue.data
+
+        // Apply the color to the navigation icon
+        binding.toolbar.navigationIcon?.colorFilter = PorterDuffColorFilter(colorOnSurface, PorterDuff.Mode.SRC_ATOP)
     }
 
     private fun setupButtons() {

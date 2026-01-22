@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="?attr/colorBackground">
 
     <!-- Toolbar -->
     <com.google.android.material.appbar.MaterialToolbar
@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
         app:title="Shopping List"
-        app:titleTextColor="@color/text_primary"
+        app:titleTextColor="?attr/colorOnSurface"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -48,7 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0 items remaining"
-                    android:textColor="@color/text_primary"
+                    android:textColor="?attr/colorOnSurface"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -57,7 +57,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:text="Tap items to mark as bought"
-                    android:textColor="@color/text_secondary"
+                    android:textColor="?attr/colorOnSurface"
+                    android:alpha="0.6"
                     android:textSize="12sp" />
 
             </LinearLayout>
@@ -111,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Shopping list is empty"
-            android:textColor="@color/text_primary"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -120,7 +121,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Tap + to add items to buy"
-            android:textColor="@color/text_secondary"
+            android:textColor="?attr/colorOnSurface"
+            android:alpha="0.6"
             android:textSize="14sp" />
 
     </LinearLayout>

@@ -22,6 +22,7 @@ class PreferenceManager(context: Context) {
         private const val KEY_DAILY_SUMMARY_ENABLED = "daily_summary_enabled"
         private const val KEY_REMINDER_DAYS = "reminder_days"
         private const val KEY_NOTIFICATION_TIME = "notification_time"
+        private const val KEY_DARK_MODE_ENABLED = "dark_mode_enabled"
     }
 
     // ==================== Session Management ====================
@@ -99,5 +100,15 @@ class PreferenceManager(context: Context) {
 
     fun setNotificationTime(time: String) {
         sharedPreferences.edit().putString(KEY_NOTIFICATION_TIME, time).apply()
+    }
+
+    // ==================== Appearance Settings ====================
+
+    fun isDarkModeEnabled(): Boolean {
+        return sharedPreferences.getBoolean(KEY_DARK_MODE_ENABLED, false)
+    }
+
+    fun setDarkModeEnabled(enabled: Boolean) {
+        sharedPreferences.edit().putBoolean(KEY_DARK_MODE_ENABLED, enabled).apply()
     }
 }

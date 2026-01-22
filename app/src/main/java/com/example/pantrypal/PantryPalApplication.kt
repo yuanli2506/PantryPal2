@@ -4,7 +4,9 @@ import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.pantrypal.data.local.PantryDatabase
+import com.example.pantrypal.util.PreferenceManager
 
 class PantryPalApplication : Application() {
 
@@ -15,6 +17,17 @@ class PantryPalApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        // Set theme based on saved preference
+        val preferenceManager = PreferenceManager(this)
+        val isDarkMode = preferenceManager.isDarkModeEnabled()
+        val mode = if (isDarkMode) {
+            AppCompatDelegate.MODE_NIGHT_YES
+        } else {
+            AppCompatDelegate.MODE_NIGHT_NO
+        }
+        AppCompatDelegate.setDefaultNightMode(mode)
+
         createNotificationChannel()
     }
 
